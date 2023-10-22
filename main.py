@@ -20,12 +20,13 @@ from pyrogram.types import User, Message
 import sys
 import re
 import os
+bot = Client(
+    "CW",
+    bot_token=os.environ.get("BOT_TOKEN"),
+    api_id=int(os.environ.get("API_ID")),
+    api_hash=os.environ.get("API_HASH")
+)
 
-bot = Client("bot",
-             bot_token= "6253605770:AAGPMePXJh03Z5XVZDUPpKA8sHIMY5rqsTE",
-             api_id= 24250238,
-             api_hash= "cb3f118ce5553dc140127647edcf3720")
-             
 
 @bot.on_message(filters.command(["start"]))
 async def account_login(bot: Client, m: Message):
